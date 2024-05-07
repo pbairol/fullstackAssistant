@@ -1,0 +1,41 @@
+{
+  "name": "discord-assistant-ai",
+  "version": "1.0.0",
+  "description": "to build an ai assistant discord bot via full stack framework",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbairol/fullstackAssistant.git"
+  },
+  "keywords": [
+    "AI",
+    "Discord",
+    "Full",
+    "stack"
+  ],
+  "author": "Pratik Bairoliya",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.8",
+    "@google/generative-ai": "^0.10.0",
+    "claude-ai": "^1.2.2",
+    "discord.js": "^14.15.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.19.0",
+    "llama-node": "^0.1.6",
+    "mongodb": "^6.6.0",
+    "mongoose": "^5.3.3",
+    "openai": "^4.42.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/pbairol/fullstackAssistant/issues"
+  },
+  "homepage": "https://github.com/pbairol/fullstackAssistant#readme"
+}

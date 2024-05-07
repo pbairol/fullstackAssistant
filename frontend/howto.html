@@ -1,0 +1,33 @@
+<!-- howto.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Complete Task</title>
+    <link rel="stylesheet" href="./main.css"> <!-- Import the main CSS file -->
+</head>
+
+<body>
+    <div class="single-task">
+        <h5 id="task-name"></h5>
+        <p id="task-status"></p>
+        <div id="how-to-content"></div>
+    </div>
+
+    <script>
+        // Retrieve task details and instructions from query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const taskName = urlParams.get('name');
+        const completionStatus = urlParams.get('status');
+        const instructions = decodeURIComponent(urlParams.get('instructions'));
+
+        // Display task details and instructions
+        document.getElementById('task-name').textContent = taskName;
+        document.getElementById('task-status').textContent = `Status: ${completionStatus}`;
+        document.getElementById('how-to-content').textContent = instructions;
+    </script>
+</body>
+
+</html>
