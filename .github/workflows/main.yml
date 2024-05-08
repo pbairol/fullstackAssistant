@@ -20,9 +20,6 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_SPACE_ID: ${{ secrets.NOTION_SPACE_ID }}
-          NOTION_TIMEZONE: America/Los_Angeles  //optional. default: AmericaLos_Angeles
-          NOTION_LOCALE: en                     //optional. default: en
-          EXPORT_PATH: content                  //optional. default: content
       
       - uses: elstudio/actions-js-build/commit@v3
         with:
