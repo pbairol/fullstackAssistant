@@ -1,17 +1,29 @@
-name: Export my notion workspace
+name: "Notion backup"
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"  # Call the export every 6 hours
-  workflow_dispatch: {}
+    -   cron: "0 1 * * *"
 
 jobs:
-  export:
+  backup:
+    name: Backup
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: igor-kupczynski/notion-exporter@v1.0.2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          pages: "1f5a09e069264b6db668be146db1497e"  # Pages IDs identified in (step 2)  
-          output-dir: notion-backup
-          notion-token: ${{ secrets.NOTION_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: '12'
+
+      - uses: porohkun/notion-backup@v1
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_SPACE_ID: ${{ secrets.NOTION_SPACE_ID }}
+          NOTION_TIMEZONE: America/Los_Angeles  //optional. default: AmericaLos_Angeles
+          NOTION_LOCALE: en                     //optional. default: en
+          EXPORT_PATH: content                  //optional. default: content
+      
+      - uses: elstudio/actions-js-build/commit@v3
+        with:
+          commitMessage: Notion backup
