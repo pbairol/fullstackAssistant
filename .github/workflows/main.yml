@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: igor-kupczynski/notion-exporter@v1.0.2
         with:
-          pages: "1f5a09e069264b6db668be146db1497e"  # Pages IDs identified in (step 2)  
+          pages: "Creating-a-Assistant-Bot-1f5a09e069264b6db668be146db1497e"  # Pages IDs identified in (step 2)  
           output-dir: notion-backup
           notion-token: ${{ secrets.NOTION_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
